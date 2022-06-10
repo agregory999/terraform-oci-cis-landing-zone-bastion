@@ -16,6 +16,10 @@ variable "private_key_path" {
   description = "The local path to the OCI user API private key file."
   default = ""
 }
+variable "private_key" {
+  description = "The OCI user API private key."
+  default = ""
+}
 variable "private_key_password" {
   description = "The password of OCI user API private key file."
   default = ""
