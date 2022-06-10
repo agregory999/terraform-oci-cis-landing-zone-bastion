@@ -1,0 +1,64 @@
+# Copyright (c) 2022 Oracle and/or its affiliates.
+# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+
+title: "CIS OCI Landing Zone Bastion Configuration"
+stackDescription: "A Terraform configuration to deploy OCI Bastion Service onto CIS OCI Landing Zone. The CIS OCI Landing Zone is the combination of CIS Foundations Benchmark for OCI with OCI architecture best practices."
+schemaVersion: 1.1.0
+version: "0.0.1"
+locale: "en"
+
+variableGroups:
+  - title: "Variables"
+    variables:
+      - "region"
+      - "security_compartment"
+      - "network_compartment"
+      - "bastions"
+
+  - title: "Hidden Variables"
+    visible: false
+    variables:
+      - "tenancy_ocid"
+      - "user_ocid"
+      - "fingerprint"
+      - "private_key_path"
+      - "private_key_password"
+  
+variables:
+  region:
+    type: oci:identity:region:name
+    title: "Region"
+    description: "The region for resources deployment."
+    required: true
+
+  security_compartment:
+    type: oci:identity:compartment:id
+    title: "Security compartment"
+    description: "The Security compartment name or OCID where the Bastion resource is deployed."
+    required: true 
+
+  network_compartment:
+    type: oci:identity:compartment:id
+    title: "Network compartment"
+    description: "The Network compartment name or OCID where the Bastion VCN is deployed."
+    required: true  
+
+  bastions:
+    type: text
+    required: true
+    multiline: true
+    title: "Bastions"
+    description: "Details of the Bastion resources to be created."
+  
+  # Hidden
+  user_ocid:
+    type: string
+
+  fingerprint:
+    type: string
+
+  private_key_path:
+    type: string
+
+  private_key_password:
+    type: password
