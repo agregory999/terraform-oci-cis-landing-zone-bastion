@@ -10,3 +10,12 @@ provider "oci" {
   private_key          = var.private_key
   private_key_password = var.private_key_password
 }
+
+terraform {
+  required_providers {
+    oci = {
+      source = "oracle/oci"
+      version = ">=4.78.0"
+    }
+  }
+}
