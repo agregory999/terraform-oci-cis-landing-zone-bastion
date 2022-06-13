@@ -18,4 +18,9 @@ module "cis-landing-zone-bastion" {
   source  = "andrecorreaneto/cis-landing-zone-bastion/oci"
   version = "0.3.0"
   # insert the 5 required variables here
+  security_compartment = var.security_compartment
+  network_compartment = var.network_compartment
+  tenancy_ocid = var.tenancy_ocid
+  region = var.region
+  bastions = var.bastions
 }
